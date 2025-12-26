@@ -1,15 +1,18 @@
 import java.util.regex.*;
-public class Capital {
+
+public class NumberFinder {
     public static void main(String[] args) {
         try {
-            String text = "Бро здесьОшибка и тД";
-            Pattern pattern = Pattern.compile("([а-яa-z])([А-ЯA-Z])");
+            String text = "БВТ2403, Информатика и вычислительная техника (09.03.01)";
+            Pattern pattern = Pattern.compile("\\d+(\\.\\d+\\.\\d+)?");
             Matcher matcher = pattern.matcher(text);
-            String result = matcher.replaceAll("$1!$2!");
-            System.out.println(result);
-
+            while (matcher.find()) { 
+                System.out.println(matcher.group());
+            }
         } catch (Exception e) {
-            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println("Произошла ошибка! " + e.getMessage());
         }
+  
     }
+}
 }
