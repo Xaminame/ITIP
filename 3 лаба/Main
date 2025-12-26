@@ -1,0 +1,79 @@
+import java.util.*;
+
+class Order {
+    private String date;              
+    private String items;     
+    private String status;           
+
+
+    public Order(String date, String items, String status) {
+        this.date = date;
+        this.items = items;
+        this.status = status;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getItems() {
+        return items;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Дата: " + date +
+               ", Товары: " + items +
+               ", Статус: " + status;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, Order> orders = new HashMap<>();
+
+        orders.put(1001, new Order("2025-09-23", "Ноутбук", "В обработке"));
+        orders.put(1002, new Order("2025-09-22", "Наушники", "В обработке"));
+        orders.put(1003, new Order("2025-09-21", "Монитор", "Доставлен"));
+
+        System.out.println("\nВсе заказы в системе:");
+            for (Map.Entry<Integer, Order> entry : orders.entrySet()) {
+                System.out.println("Номер: " + entry.getKey() + " ; " + entry.getValue());
+        }
+         System.out.println();
+         
+        int searchId = 1002;
+        if (orders.containsKey(searchId)) {
+            System.out.println("Найден заказ №" + searchId + ": " + orders.get(searchId));
+        } else {
+            System.out.println("Заказ №" + searchId + " не найден.");
+        }
+
+        int updateId = 1001;
+        if (orders.containsKey(updateId)) {
+            orders.get(updateId).setStatus("Доставлен");
+            System.out.println("Статус заказа №" + updateId + " обновлён: " + orders.get(updateId));
+        }
+
+        int deleteId = 1003;
+        if (orders.containsKey(deleteId)) {
+            orders.remove(deleteId);
+            System.out.println("Заказ №" + deleteId + " удалён.");
+        }
+
+        System.out.println("\nВсе заказы в системе:");
+        for (Map.Entry<Integer, Order> entry : orders.entrySet()) {
+            System.out.println("Номер: " + entry.getKey() + " ; " + entry.getValue());
+        }
+    }
+}
