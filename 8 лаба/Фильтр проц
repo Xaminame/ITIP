@@ -1,0 +1,11 @@
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class FilterProcessor {
+    @DataProcessor
+    public List<String> filterData(List<String> input) {
+        return input.stream()
+                .filter(s -> s.startsWith("A"))
+                .collect(Collectors.toList());
+    }
+}
