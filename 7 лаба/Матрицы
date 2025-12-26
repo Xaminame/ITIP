@@ -1,0 +1,51 @@
+public class Matrix {
+    static class MaxThread extends Thread {
+        private int[] row;
+        private int maxValue = -99;
+
+        public MaxThread(int[] row) {
+            this.row = row;
+        }
+        @Override
+        public void run() {
+            for (int value : row) {
+                if (value > maxValue) {
+                    maxValue = value;
+                }
+            }
+        }
+        public int getMaxValue() { 
+            return maxValue; 
+        }
+    }
+    public static void main(String[] args) throws InterruptedException {
+        int[][] matrix = {{1,2,3,4}, 
+                          {5,6,7,8},
+                          {9,10,11,12}, 
+                          {13,14,15,16}                       
+                        };
+
+        int rows = matrix.length;
+        MaxThread[] threads = new MaxThread[rows];
+
+        for (int i = 0; i < rows; i++) {
+            threads[i] = new MaxThread(matrix[i]);
+            threads[i].start();
+        }
+
+        for (int i = 0; i < rows; i++) {
+            threads[i].join();
+        }
+
+        int globalMax = threads[0].getMaxValue();
+        
+        for (int i = 1; i < rows; i++) {
+            int rowMax = threads[i].getMaxValue();
+            if (rowMax > globalMax) {
+                globalMax = rowMax;
+            }
+        }
+
+        System.out.println("Наибольший элемент в матрице: " + globalMax);
+    }
+}
