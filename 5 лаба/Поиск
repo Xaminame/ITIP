@@ -1,0 +1,15 @@
+import java.util.regex.*;
+public class Capital {
+    public static void main(String[] args) {
+        try {
+            String text = "Бро здесьОшибка и тД";
+            Pattern pattern = Pattern.compile("([а-яa-z])([А-ЯA-Z])");
+            Matcher matcher = pattern.matcher(text);
+            String result = matcher.replaceAll("$1!$2!");
+            System.out.println(result);
+
+        } catch (Exception e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+    }
+}
