@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class AggregateProcessor {
+    @DataProcessor
+    public List<String> aggregateData(List<String> input) {
+        long count = input.size();
+        double avgLength = input.stream()
+                .mapToInt(String::length)
+                .average()
+                .orElse(0.0);
+
+        List<String> result = new ArrayList<>(input);
+        result.add("");
+        result.add("Всего строк: " + count);
+        result.add("Средняя длина: " + String.format("%.1f", avgLength));
+        return result;
+    }
+}
