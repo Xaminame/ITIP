@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+
+        List<Tovar> list = new ArrayList<>();
+        
+        list.add(new Tovar("Бутыли воды", 30));
+        list.add(new Tovar("Ящик бананов", 20));
+        list.add(new Tovar("Мешок сахара", 45));
+        list.add(new Tovar("Ящик апельсинов", 35));
+        
+        Sklad sklad = new Sklad(list);
+
+        Gruzchik g1 = new Gruzchik("Грузчик 1", sklad);
+        Gruzchik g2 = new Gruzchik("Грузчик 2", sklad);
+        Gruzchik g3 = new Gruzchik("Грузчик 3", sklad);
+
+        g1.start();
+        g2.start();
+        g3.start();
+
+        g1.join();
+        g2.join();
+        g3.join();
+
+        if (sklad.getCurrentWeight() > 0) {
+            sklad.sendPartiya();
+        }
+    }
+}
