@@ -1,0 +1,24 @@
+class Fish extends Animal {
+    private String waterType;
+    
+    public Fish() {
+        super();
+        this.waterType = "Любая";
+    }
+
+    public Fish(String name, int age, String color, String waterType) {
+        super(name, age, color);
+        this.waterType = waterType;
+    }
+
+    @Override
+    public void showInfo() {
+        System.out.println("Имя: " + name + ", Возраст: " + age + ", Цвет: " + color +
+                ", Тип воды: " + waterType);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println(name +" булькает");
+    }
+}
