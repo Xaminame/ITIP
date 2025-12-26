@@ -1,0 +1,48 @@
+public class MultiThreadSum {
+
+    static class SumThread extends Thread {
+        private int[] array;
+        private int start;
+        private int end;
+        private int result = 0;
+
+        public SumThread(int[] array, int start, int end) {
+            this.array = array;
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        public void run() {
+            for (int i = start; i < end; i++) {
+                result += array[i];
+            }
+        }
+        public int getResult() {
+            return result;
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        int[] data = {1, 2, 3, 4, 5, 6, 7, 8};
+
+        int mid = data.length / 2;
+
+        SumThread t1 = new SumThread(data, 0, mid);
+        SumThread t2 = new SumThread(data, mid, data.length);
+
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+        
+        System.out.println("t1 = " + t1.getResult());
+        System.out.println("t2 = " + t2.getResult());
+
+        int totalSum = t1.getResult() + t2.getResult();
+
+        System.out.println("t1 + t2 = " + totalSum);
+    }
+}
