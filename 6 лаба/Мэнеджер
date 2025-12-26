@@ -1,0 +1,79 @@
+import java.util.*;
+
+public class SalesManager {
+    private static class Sale {
+        private String name;
+        private double price;
+        
+        public Sale(String name, double price) {
+            this.name = name;
+            this.price = price;
+        }
+        public String getName() {
+            return name;
+        }
+        public double getPrice() {
+            return price;
+        }
+
+    @Override
+    public String toString() {
+        return name + " - " + price + " руб.";
+    }
+}
+    private LinkedList<Sale> sales = new LinkedList<>();
+    public void addSale(String name, double price) {
+        sales.add(new Sale(name, price));
+    }
+    public void printSales() {
+        if (sales.isEmpty()) {
+            System.out.println("Продаж пока нет.");
+        return;
+        }
+        System.out.println("Список проданных товаров: ");
+        for (Sale s : sales) {
+            System.out.println(s);
+        }
+    }
+
+
+    public double totalSum() {
+        double sum = 0;
+        for (Sale s : sales) {
+            sum += s.getPrice();
+        }
+        return sum;
+    }
+
+    public String mostPopularProduct() {
+        if (sales.isEmpty()) {
+            return "Нет данных";
+        }
+        Map<String, Integer> countMap = new HashMap<>();
+        for (Sale s : sales) {
+            countMap.put(s.getName(), countMap.getOrDefault(s.getName(), 0) + 1);
+        }
+        String popular = null;
+        int maxCount = 0;
+        for (Map.Entry<String, Integer> entry : countMap.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                popular = entry.getKey();
+                maxCount = entry.getValue();
+            }
+        }
+        return popular;
+    }
+    public static void main(String[] args) {
+        SalesManager manager = new SalesManager();
+
+        manager.addSale("Хлеб", 39.99);
+        manager.addSale("Молоко", 69.99);
+        manager.addSale("Хлеб", 89.99);
+        manager.addSale("Яблоко", 39.99);
+
+        manager.printSales();
+
+        System.out.println("\nОбщая сумма продаж: " + manager.totalSum() + " руб.");
+        System.out.println("Самый популярный товар: " + manager.mostPopularProduct());
+    }
+}
