@@ -1,0 +1,24 @@
+import java.util.regex.*;
+
+public class WordSearch {
+    public static void main(String[] args) {
+        try {
+            String text = "public static void main String args";
+            String letter = "S"; 
+
+            Pattern pattern = Pattern.compile("(?i)(^|\\s)" + letter + "[а-яА-Яa-zA-Z]*");
+            Matcher matcher = pattern.matcher(text);
+
+            boolean found = false;
+
+            while (matcher.find()) {
+                System.out.println(matcher.group());
+                found = true;
+            }
+
+            if (!found) System.out.println("Таких слов нет.");
+        } catch (Exception e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+    }
+}
