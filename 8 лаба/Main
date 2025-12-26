@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        DataManager manager = new DataManager();
+
+        manager.registerDataProcessor(new FilterProcessor());
+        manager.registerDataProcessor(new UpperCaseProcessor());
+        manager.registerDataProcessor(new AggregateProcessor());
+
+        try {
+            manager.loadData("input.txt");
+
+            manager.processData();
+
+            manager.saveData("output.txt");
+
+            System.out.println("Данные успешно обработаны!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
