@@ -1,0 +1,19 @@
+import java.util.regex.*;
+
+public class CheckerIP {
+    public static void main(String[] args) {
+        try {
+            String IP = "225.225.225.225";
+            Pattern pattern = Pattern.compile("^((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}" + "(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)$");
+            Matcher matcher = pattern.matcher(IP);
+            if (matcher.matches()) {
+                System.out.println("IP-адрес корректный!");
+            }
+            else { 
+                System.out.println("IP-адрес некорректный!");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }   
+    }
+}
