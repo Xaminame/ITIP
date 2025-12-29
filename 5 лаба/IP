@@ -3,7 +3,7 @@ import java.util.regex.*;
 public class CheckerIP {
     public static void main(String[] args) {
         try {
-            String IP = "225.225.225.225";
+            String IP = "194.194.194.194";
             Pattern pattern = Pattern.compile("^((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}" + "(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)$");
             Matcher matcher = pattern.matcher(IP);
             if (matcher.matches()) {
