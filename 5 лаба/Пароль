@@ -3,7 +3,7 @@ import java.util.regex.*;
 public class CheckPassword {
     public static void main(String[] args) throws ArrayIndexOutOfBoundsException {
         try {
-            String text = "pAsSwOrD1337"; 
+            String text = "PaSswOrD1448"; 
             Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,16}$");
             Matcher matcher = pattern.matcher(text);
             if (matcher.matches()) {
