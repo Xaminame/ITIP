@@ -7,7 +7,7 @@ class CustomDivisionException extends Exception {
 public class Division {
     public static void main(String[] args) {
         int a = 10;
-        int b = 0; 
+        int b = 1; 
 
         try {
             double result = divide(a, b);
