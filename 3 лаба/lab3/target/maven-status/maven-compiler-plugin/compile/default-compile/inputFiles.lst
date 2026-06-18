@@ -1,0 +1,10 @@
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/SpringLab3NotificationsApplication.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/config/AppConfig.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/controller/HelloController.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/controller/NotificationController.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/service/EmailService.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/service/MessageService.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/service/NotificationManager.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/service/PushService.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/service/SmsService.java
+/Users/dimarik/Desktop/ITIP/lab3/src/main/java/org/example/springlab3notifications/service/TelegramService.java
