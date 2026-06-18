@@ -1,0 +1,5 @@
+org\example\SimpleTest.class
+org\example\service\UserServiceTest.class
+org\example\service\NotificationServiceTest.class
+org\example\controller\NotificationControllerTest.class
+org\example\SpyListTest.class

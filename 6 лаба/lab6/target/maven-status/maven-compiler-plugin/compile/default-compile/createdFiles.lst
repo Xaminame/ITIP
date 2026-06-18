@@ -1,0 +1,8 @@
+org\example\SpringLab6Application.class
+org\example\controller\NotificationController.class
+org\example\repository\UserRepository.class
+org\example\model\User.class
+org\example\repository\NotificationRepository.class
+org\example\model\Notification.class
+org\example\service\NotificationService.class
+org\example\service\UserService.class
